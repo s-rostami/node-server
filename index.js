@@ -14,6 +14,10 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get('/', function (req, res) {
+  res.send('Hello there, it is working!');
+});
+
 app.post("/node_server", (req, res) => {
   const CityName = req.body.cityName;
   const cityReview = req.body.cityReview;
