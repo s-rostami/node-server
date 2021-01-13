@@ -14,7 +14,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post("/api/insert1", (req, res) => {
+app.post("/node_server", (req, res) => {
   const CityName = req.body.cityName;
   const cityReview = req.body.cityReview;
   var docClient = new AWS.DynamoDB.DocumentClient();
@@ -44,6 +44,8 @@ app.post("/api/insert1", (req, res) => {
       console.log("Added item:", JSON.stringify(data, null, 2));
     }
   });
+  res.statusCode = 200
+  res.end('Thank you')
 });
 
 app.listen(3001, () => {
